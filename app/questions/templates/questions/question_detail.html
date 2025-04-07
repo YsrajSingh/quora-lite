@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ question.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>{{ question.title }}</h2>
+  <p class="text-muted">Posted by {{ question.author.username }} on {{ question.created_at }}</p>
+
+  <h4 class="my-4">Answers</h4>
+
+  {% if answers %}
+    <ul class="list-group mb-4">
+      {% for answer in answers %}
+        <li class="list-group-item">
+          <p>{{ answer.content }}</p>
+          <small class="text-muted">By {{ answer.author.username }} on {{ answer.created_at|date:"M d, Y H:i" }}</small>
+
+          <form method="post" action="{% url 'questions:like_answer' answer.id %}" class="mt-2">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-outline-primary">
+              👍 Like ({{ answer.likes.count }})
+            </button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-muted">No answers yet. Be the first to answer!</p>
+  {% endif %}
+</div>
+{% endblock %}
