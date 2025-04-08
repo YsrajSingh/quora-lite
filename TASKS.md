@@ -10,9 +10,9 @@
 - [x] Display answers under each question
 - [x] Add like functionality to answers (one like per user)
 - [ ] Use Django templates for basic HTML pages
-- [ ] Protect views with authentication checks
+- [x] Protect views with authentication checks
 - [ ] Add admin panel registration for all models
-- [ ] Add .env configuration and test setup
+- [x] Add .env configuration and test setup
 - [ ] Write a clear README with setup instructions and feature list
 - [ ] Upload project to GitHub for submission
 
@@ -21,3 +21,4 @@
 - [ ] click on question list is not workign
 - [ ] after submitting answer redirection issue.
 - [ ] like is not showing this is liked by me.
+- [ ] delete and update comment (with edited)

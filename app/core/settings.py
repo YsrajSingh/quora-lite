@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-o43c$wg)!9=!%+d88*d%2(ybn&orp@tfu(us&_*j#!=y0v#7dm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_URL = '/login/'
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    'questions.middleware.AuthMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -76,7 +79,6 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-import os
 
 DATABASES = {
     'default': {
