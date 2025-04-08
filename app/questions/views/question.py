@@ -32,8 +32,7 @@ class QuestionDetailView(View):
 
         liked_answer_ids = set(
             Answer.objects.filter(
-                likes__user=request.user,
-                question=question
+                likes__user=request.user, question=question
             ).values_list("id", flat=True)
         )
 
@@ -44,5 +43,5 @@ class QuestionDetailView(View):
                 "question": question,
                 "answers": answers,
                 "liked_answer_ids": liked_answer_ids,
-            }
+            },
         )

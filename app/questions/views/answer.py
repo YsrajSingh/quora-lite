@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from questions.models import Question, Answer
 from questions.forms.answer import AnswerForm
 
+
 class PostAnswerView(LoginRequiredMixin, View):
     template_name = "answers/post_answer.html"
 
@@ -32,7 +33,9 @@ class UpdateAnswerView(LoginRequiredMixin, View):
     def get(self, request, question_id):
         answer = get_object_or_404(Answer, question_id=question_id, author=request.user)
         form = AnswerForm(instance=answer)
-        return render(request, self.template_name, {"form": form, "question": answer.question})
+        return render(
+            request, self.template_name, {"form": form, "question": answer.question}
+        )
 
     def post(self, request, question_id):
         answer = get_object_or_404(Answer, question_id=question_id, author=request.user)
@@ -42,7 +45,9 @@ class UpdateAnswerView(LoginRequiredMixin, View):
             form.save()
             return redirect("questions:question_detail", question_id=question_id)
 
-        return render(request, self.template_name, {"form": form, "question": answer.question})
+        return render(
+            request, self.template_name, {"form": form, "question": answer.question}
+        )
 
 
 class DeleteAnswerView(LoginRequiredMixin, View):
