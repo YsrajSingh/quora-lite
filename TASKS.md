@@ -14,7 +14,7 @@
 - [x] Add admin panel registration for all models
 - [x] Add .env configuration and test setup
 - [x] Write a clear README with setup instructions and feature list
-- [ ] Read code once and after resolving bugs
+- [x] Read code once and after resolving bugs
 - [ ] Upload project to GitHub for submission
 
 
