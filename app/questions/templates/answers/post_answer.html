@@ -3,11 +3,17 @@
 
 {% block content %}
 <div class="container mt-5">
-  <h2 class="mb-4">Answer: {{ question.title }}</h2>
+  <h2 class="mb-3">Answer the Question</h2>
+  <h5 class="text-muted mb-4">{{ question.title }}</h5>
+
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="mb-3">
+      <label for="id_content" class="form-label">Your Answer</label>
+      {{ form.content }}
+    </div>
     <button type="submit" class="btn btn-success">Submit Answer</button>
+    <a href="{% url 'questions:question_detail' question.id %}" class="btn btn-secondary ms-2">Back</a>
   </form>
 </div>
 {% endblock %}

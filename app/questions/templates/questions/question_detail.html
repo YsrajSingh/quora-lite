@@ -5,9 +5,10 @@
 <div class="container mt-5">
   <h2>{{ question.title }}</h2>
   <p class="text-muted">Posted by {{ question.author.username }} on {{ question.created_at }}</p>
-
-  <h4 class="my-4">Answers</h4>
-
+  <div class="d-flex align-items-center justify-content-between">
+    <h4 class="my-4">Answers</h4>
+    <a href="{% url 'questions:answer_question' question.id %}" class="btn btn-primary mb-3">Post New Answer</a>
+  </div>
   {% if answers %}
     <ul class="list-group mb-4">
       {% for answer in answers %}
