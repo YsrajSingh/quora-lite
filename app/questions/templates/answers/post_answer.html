@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 {% block title %}Answer Question{% endblock %}
-
 {% block content %}
-<div class="container mt-5">
-  <h2 class="mb-3">Answer the Question</h2>
-  <h5 class="text-muted mb-4">{{ question.title }}</h5>
-
-  <form method="post">
-    {% csrf_token %}
-    <div class="mb-3">
-      <label for="id_content" class="form-label">Your Answer</label>
-      {{ form.content }}
+    <div class="container mt-5">
+        <h2 class="mb-3">Answer the Question</h2>
+        <h5 class="text-muted mb-4">{{ question.title }}</h5>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_content" class="form-label">Your Answer</label>
+                {{ form.content }}
+            </div>
+            <button type="submit" class="btn btn-success">Submit Answer</button>
+            <a href="{% url 'questions:question_detail' question.id %}"
+               class="btn btn-secondary ms-2">Back</a>
+        </form>
     </div>
-    <button type="submit" class="btn btn-success">Submit Answer</button>
-    <a href="{% url 'questions:question_detail' question.id %}" class="btn btn-secondary ms-2">Back</a>
-  </form>
-</div>
 {% endblock %}
