@@ -24,4 +24,4 @@
 - [x] after submitting answer redirection issue.
 - [x] like is not showing this is liked by me.
 - [x] like redirection issue
-- [ ] delete and update comment (with edited)
+- [x] delete and update comment
