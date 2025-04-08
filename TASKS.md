@@ -9,16 +9,19 @@
 - [x] Implement answer model, form, and view to post answers
 - [x] Display answers under each question
 - [x] Add like functionality to answers (one like per user)
-- [ ] Use Django templates for basic HTML pages
+- [x] Use Django templates for basic HTML pages
 - [x] Protect views with authentication checks
-- [ ] Add admin panel registration for all models
+- [x] Add admin panel registration for all models
 - [x] Add .env configuration and test setup
-- [ ] Write a clear README with setup instructions and feature list
+- [x] Write a clear README with setup instructions and feature list
+- [ ] Read code once and after resolving bugs
 - [ ] Upload project to GitHub for submission
 
 
+
 ## Issues
-- [ ] click on question list is not workign
-- [ ] after submitting answer redirection issue.
-- [ ] like is not showing this is liked by me.
+- [x] click on question list is not workign
+- [x] after submitting answer redirection issue.
+- [x] like is not showing this is liked by me.
+- [x] like redirection issue
 - [ ] delete and update comment (with edited)

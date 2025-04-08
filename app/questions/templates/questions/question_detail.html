@@ -5,10 +5,12 @@
 <div class="container mt-5">
   <h2>{{ question.title }}</h2>
   <p class="text-muted">Posted by {{ question.author.username }} on {{ question.created_at }}</p>
+
   <div class="d-flex align-items-center justify-content-between">
     <h4 class="my-4">Answers</h4>
     <a href="{% url 'questions:answer_question' question.id %}" class="btn btn-primary mb-3">Post New Answer</a>
   </div>
+
   {% if answers %}
     <ul class="list-group mb-4">
       {% for answer in answers %}
@@ -16,12 +18,25 @@
           <p>{{ answer.content }}</p>
           <small class="text-muted">By {{ answer.author.username }} on {{ answer.created_at|date:"M d, Y H:i" }}</small>
 
-          <form method="post" action="{% url 'questions:like_answer' answer.id %}" class="mt-2">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-sm btn-outline-primary">
-              👍 Like ({{ answer.likes.count }})
-            </button>
-          </form>
+          <div class="d-flex align-items-center gap-2 mt-2">
+            <form method="post" action="{% url 'questions:like_answer' answer.id %}">
+              {% csrf_token %}
+              {% if answer.id in liked_answer_ids %}
+                <button type="submit" class="btn btn-sm btn-primary">
+                  ❤️ Liked ({{ answer.likes.count }})
+                </button>
+              {% else %}
+                <button type="submit" class="btn btn-sm btn-outline-primary">
+                  👍 Like ({{ answer.likes.count }})
+                </button>
+              {% endif %}
+            </form>
+
+            {% if user == answer.author %}
+              <a href="{% url 'questions:edit_answer' answer.question.id %}" class="btn btn-sm btn-outline-secondary">✏️ Edit</a>
+              <a href="{% url 'questions:delete_answer' answer.question.id %}" class="btn btn-sm btn-outline-danger">🗑️ Delete</a>
+            {% endif %}
+          </div>
         </li>
       {% endfor %}
     </ul>

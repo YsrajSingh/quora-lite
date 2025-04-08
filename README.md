@@ -17,28 +17,11 @@ A mini Quora-style Q&A web app built with Django. Users can sign up, post questi
 
 ## 💠 Tech Stack
 
-- **Backend**: Django 4.x
+- **Backend**: Django 5.x
 - **Database**: PostgreSQL
 - **Auth**: Django’s built-in authentication
 - **Frontend**: HTML (Django templates)
 - **Containerization**: Docker & Docker Compose
-
----
-
-## 📦 Project Structure
-
-```
-quora_clone/
-├── app/                  # Django project
-│   ├── questions/        # App for questions, answers, likes
-│   ├── templates/        # HTML templates
-│   └── manage.py
-├── Dockerfile
-├── docker-compose.yml
-├── .env
-├── requirements.txt
-└── README.md
-```
 
 ---
 
@@ -47,14 +30,14 @@ quora_clone/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/quora-clone.git
-cd quora-clone
+git clone https://github.com/YsrajSingh/quora-lite
+cd quora-lite
 ```
 
 ### 2. Create `.env` File
 
 ```env
-DEBUG=True
+DEBUG=False
 SECRET_KEY=django-insecure-key
 POSTGRES_DB=quora_clone
 POSTGRES_USER=postgres
@@ -99,11 +82,11 @@ _Add screenshots of key features like posting a question, answering, and liking.
 
 ## 👨‍💻 Author
 
-- **Yashraj Singh** – [LinkedIn](https://www.linkedin.com/in/your-profile) | [GitHub](https://github.com/yourusername)
+- **Yashraj Singh** – [LinkedIn](http://linkedin.com/in/ysraz-singh/) | [GitHub](https://github.com/ysrajsingh)
 
 ---
 
 ## 📬 Contact
 
 If you have any questions or suggestions, feel free to reach out at:  
-**careers@transportsimple.com**
+**contact@yashrajs.com**

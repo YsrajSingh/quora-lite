@@ -21,7 +21,8 @@ urlpatterns = [
 
     # # Answers
     path('answer/<int:question_id>/', answer.PostAnswerView.as_view(), name='answer_question'),
-
+    path("answer/<int:question_id>/edit/", answer.UpdateAnswerView.as_view(), name="edit_answer"),
+    path("answer/<int:question_id>/delete/", answer.DeleteAnswerView.as_view(), name="delete_answer"),
     # # Likes
     path('like/<int:answer_id>/', like.LikeAnswerView.as_view(), name='like_answer'),
 ]

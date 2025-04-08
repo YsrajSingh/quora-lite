@@ -23,5 +23,26 @@ class QuestionDetailView(View):
 
     def get(self, request, question_id):
         question = get_object_or_404(Question, id=question_id)
-        answers = Answer.objects.filter(question=question).order_by("-created_at")
-        return render(request, self.template_name, {"question": question, "answers": answers})
+
+        answers = (
+            Answer.objects.filter(question=question)
+            .order_by("-created_at")
+            .prefetch_related("likes")
+        )
+
+        liked_answer_ids = set(
+            Answer.objects.filter(
+                likes__user=request.user,
+                question=question
+            ).values_list("id", flat=True)
+        )
+
+        return render(
+            request,
+            self.template_name,
+            {
+                "question": question,
+                "answers": answers,
+                "liked_answer_ids": liked_answer_ids,
+            }
+        )

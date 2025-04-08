@@ -10,3 +10,6 @@ class Answer(models.Model):
 
     def __str__(self):
         return f"Answer by {self.author.username} on {self.question.title}"
+
+    def is_liked_by(self, user):
+        return self.likes.filter(user=user).exists()

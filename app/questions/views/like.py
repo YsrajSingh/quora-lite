@@ -4,6 +4,8 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from questions.models.answer import Answer
 from questions.models.like import Like
+from django.http import HttpResponseRedirect
+
 
 @method_decorator(login_required, name="dispatch")
 class LikeAnswerView(View):
@@ -15,4 +17,4 @@ class LikeAnswerView(View):
         if not created:
             like.delete()  # Unlike if already liked
 
-        return redirect("questions:home")
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
