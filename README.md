@@ -74,9 +74,9 @@ Visit [http://localhost:8000](http://localhost:8000) in your browser.
 
 ---
 
-## 📸 Screenshots
+## 📸 Demo
 
-_Add screenshots of key features like posting a question, answering, and liking._
+👉 [Click here to watch the demo](demo/quora-lite.mp4)
 
 ---
 
