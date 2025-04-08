@@ -26,12 +26,12 @@ urlpatterns = [
         name="answer_question",
     ),
     path(
-        "answer/<int:question_id>/edit/",
+        "answer/<int:answer_id>/edit/",
         answer.UpdateAnswerView.as_view(),
         name="edit_answer",
     ),
     path(
-        "answer/<int:question_id>/delete/",
+        "answer/<int:answer_id>/delete/",
         answer.DeleteAnswerView.as_view(),
         name="delete_answer",
     ),

@@ -30,20 +30,20 @@ class PostAnswerView(LoginRequiredMixin, View):
 class UpdateAnswerView(LoginRequiredMixin, View):
     template_name = "answers/post_answer.html"
 
-    def get(self, request, question_id):
-        answer = get_object_or_404(Answer, question_id=question_id, author=request.user)
+    def get(self, request, answer_id):
+        answer = get_object_or_404(Answer, id=answer_id, author=request.user)
         form = AnswerForm(instance=answer)
         return render(
             request, self.template_name, {"form": form, "question": answer.question}
         )
 
-    def post(self, request, question_id):
-        answer = get_object_or_404(Answer, question_id=question_id, author=request.user)
+    def post(self, request, answer_id):
+        answer = get_object_or_404(Answer, id=answer_id, author=request.user)
         form = AnswerForm(request.POST, instance=answer)
 
         if form.is_valid():
             form.save()
-            return redirect("questions:question_detail", question_id=question_id)
+            return redirect("questions:question_detail", question_id=answer.question.id)
 
         return render(
             request, self.template_name, {"form": form, "question": answer.question}
@@ -53,12 +53,12 @@ class UpdateAnswerView(LoginRequiredMixin, View):
 class DeleteAnswerView(LoginRequiredMixin, View):
     template_name = "answers/confirm_delete.html"
 
-    def get(self, request, question_id):
-        answer = get_object_or_404(Answer, question_id=question_id, author=request.user)
+    def get(self, request, answer_id):
+        answer = get_object_or_404(Answer, id=answer_id, author=request.user)
         return render(request, self.template_name, {"answer": answer})
 
-    def post(self, request, question_id):
-        answer = get_object_or_404(Answer, question_id=question_id, author=request.user)
+    def post(self, request, answer_id):
+        answer = get_object_or_404(Answer, id=answer_id, author=request.user)
         question_id = answer.question.id
         answer.delete()
         return redirect("questions:question_detail", question_id=question_id)

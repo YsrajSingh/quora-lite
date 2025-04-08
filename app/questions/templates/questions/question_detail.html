@@ -25,9 +25,9 @@
                                 {% endif %}
                             </form>
                             {% if user == answer.author %}
-                                <a href="{% url 'questions:edit_answer' answer.question.id %}"
+                                <a href="{% url 'questions:edit_answer' answer.id %}"
                                    class="btn btn-sm btn-outline-secondary">✏️ Edit</a>
-                                <a href="{% url 'questions:delete_answer' answer.question.id %}"
+                                <a href="{% url 'questions:delete_answer' answer.id %}"
                                    class="btn btn-sm btn-outline-danger">🗑️ Delete</a>
                             {% endif %}
                         </div>
